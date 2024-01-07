@@ -27,7 +27,7 @@ class HBNBCommand(cmd.Cmd):
     def do_create(self, cls_name):
         """Creates a new instance of BaseModel, save it to json file """
         if cls_name:
-            if cls_name != BaseModel:
+            if cls_name != "BaseModel":
                 print("** class doesn't exist **")
                 return
             new_instance = BaseModel()
@@ -44,7 +44,7 @@ class HBNBCommand(cmd.Cmd):
             return
 
         cls_name = args[0]
-        if cls_name != BaseModel:
+        if cls_name != "BaseModel":
             print("** class doesn't exist **")
             return
 
@@ -68,7 +68,7 @@ class HBNBCommand(cmd.Cmd):
             return
 
         cls_name = args[0]
-        if cls_name != BaseModel:
+        if cls_name != "BaseModel":
             print("** class doesn't exist **")
             return
 
@@ -98,7 +98,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing **")
             return
 
-        if args[0] != BaseModel:
+        if args[0] != "BaseModel":
             print("** class doesn't exist **")
             return
         if len(args) < 2:
