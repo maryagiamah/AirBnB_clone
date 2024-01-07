@@ -25,7 +25,7 @@ class HBNBCommand(cmd.Cmd):
     def do_create(self, cls_name):
         """Creates a new instance of BaseModel, save it to json file """
         if cls_name:
-            if  not isinstance(cls_name, BaseModel):
+            if not isinstance(cls_name, BaseModel):
                 print("** class doesn't exist **")
                 return
             new_instance = BaseModel()
@@ -35,7 +35,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing **")
 
     def do_show(self, arg):
-    """Prints the string representation of an instance"""
+        """Prints the string representation of an instance"""
         args = arg.split()
         if not args:
             print("** class name missing **")
@@ -66,7 +66,7 @@ class HBNBCommand(cmd.Cmd):
             return
 
         cls_name = args[0]
-        if  not isinstance(cls_name, BaseModel):
+        if not isinstance(cls_name, BaseModel):
             print("** class doesn't exist **")
             return
 
@@ -116,6 +116,7 @@ class HBNBCommand(cmd.Cmd):
             return
         if args[3] in ["id", "created_at", "updated_at"]:
             return
-        if type(args[4]) ==
+
+
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
