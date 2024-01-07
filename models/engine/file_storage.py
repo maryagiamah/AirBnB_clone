@@ -23,11 +23,8 @@ class FileStorage:
 
     def save(self):
         """serializes __objects to the JSON file """
-        with open(self.__file_path, 'w') as fp:
-            try:
+        with open(self.__file_path, 'w') as fp:1a
                 json.dump(self.__objects, fp)
-            except Exception as e:
-                pass
 
     def reload(self):
         """Deserializes the JSON file to __objects if file-path exists """
