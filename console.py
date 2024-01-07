@@ -98,7 +98,9 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing **")
             return
 
-        if args[0] != "BaseModel":
+        cls_name = args[0]
+
+        if cls_name != "BaseModel":
             print("** class doesn't exist **")
             return
         if len(args) < 2:
@@ -116,8 +118,6 @@ class HBNBCommand(cmd.Cmd):
             return
         if len(args) < 4:
             print("** value missing **")
-            return
-        if args[3] in ["id", "created_at", "updated_at"]:
             return
 
 
