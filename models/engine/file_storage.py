@@ -2,7 +2,8 @@
 """Contians class FileStorage"""
 
 
-import os, json
+import os
+import json
 
 
 class FileStorage:
@@ -33,6 +34,6 @@ class FileStorage:
         if os.path.exists(self.__file_path):
             with open(self.__file_path, 'r') as fp:
                 try:
-                    self.__objects  = json.load(fp)
+                    self.__objects = json.load(fp)
                 except Exception as e:
                     pass
