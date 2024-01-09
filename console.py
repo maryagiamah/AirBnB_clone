@@ -80,7 +80,6 @@ class HBNBCommand(cmd.Cmd):
         try:
             obj = models.storage.all()[f"{cls_name}.{reg_no}"]
             del obj
-            models.storage.save()
         except KeyError:
             print("** no instance found **")
 
