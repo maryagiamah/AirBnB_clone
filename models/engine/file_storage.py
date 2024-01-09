@@ -36,5 +36,5 @@ class FileStorage:
             for k, v in file_dict.items():
                 obj = self.class_dict[v['__class__']](**v)
                 self.__objects[k] = obj
-            except Exception as e:
-                pass
+        except Exception as e:
+            pass
