@@ -55,7 +55,7 @@ class HBNBCommand(cmd.Cmd):
         reg_no = args[1]
 
         try:
-            obj = models.storage.all()[f"{cls_name} setattr( setattr(self, args[2], args[3])self, args[2], args[3]).{reg_no}"]
+            obj = models.storage.all()[f"{cls_name}.{reg_no}"]
             print(obj)
         except KeyError:
             print("** no instance found **")
@@ -119,7 +119,7 @@ class HBNBCommand(cmd.Cmd):
         if len(args) < 4:
             print("** value missing **")
             return
-        setattr(self, args[2], args[3])
+        setattr(obj, args[2], args[3])
 
 
 if __name__ == '__main__':
