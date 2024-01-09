@@ -11,6 +11,7 @@ class HBNBCommand(cmd.Cmd):
     """Command line interpreter """
 
     prompt = '(hbnb) '
+    all_models = ["BaseModel", "User"]
 
     def do_EOF(self, line):
         """Exit the program"""
@@ -27,7 +28,7 @@ class HBNBCommand(cmd.Cmd):
     def do_create(self, cls_name):
         """Creates a new instance of BaseModel, save it to json file """
         if cls_name:
-            if cls_name != "BaseModel":
+            if cls_name not in all_models:
                 print("** class doesn't exist **")
                 return
             new_instance = BaseModel()
@@ -44,7 +45,7 @@ class HBNBCommand(cmd.Cmd):
             return
 
         cls_name = args[0]
-        if cls_name != "BaseModel":
+        if cls_name not in all_models:
             print("** class doesn't exist **")
             return
 
@@ -69,7 +70,7 @@ class HBNBCommand(cmd.Cmd):
             return
 
         cls_name = args[0]
-        if cls_name != "BaseModel":
+        if cls_name not in all_models:
             print("** class doesn't exist **")
             return
 
@@ -86,7 +87,7 @@ class HBNBCommand(cmd.Cmd):
         models.storage.save()
     def do_all(self, arg):
         """Prints all string representation of all instances """
-        if arg and arg != 'BaseModel':
+        if arg and arg not in all_models:
             print("** class doesn't exist **")
             return
         print([str(obj) for obj in models.storage.all().values()])
@@ -100,7 +101,7 @@ class HBNBCommand(cmd.Cmd):
 
         cls_name = args[0]
 
-        if cls_name != "BaseModel":
+        if cls_name not in all_models:
             print("** class doesn't exist **")
             return
         if len(args) < 2:
