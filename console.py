@@ -32,7 +32,7 @@ class HBNBCommand(cmd.Cmd):
             if cls_name not in self.all_models:
                 print("** class doesn't exist **")
                 return
-            new_instance = BaseModel()
+            new_instance = eval(cls_name)()
             new_instance.save()
             print(new_instance.id)
         else:
@@ -88,7 +88,7 @@ class HBNBCommand(cmd.Cmd):
         models.storage.save()
     def do_all(self, arg):
         """Prints all string representation of all instances """
-        if arg and arg not in all_models:
+        if arg and arg not in self.all_models:
             print("** class doesn't exist **")
             return
         print([str(obj) for obj in models.storage.all().values()])
