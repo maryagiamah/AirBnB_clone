@@ -119,7 +119,7 @@ class HBNBCommand(cmd.Cmd):
         if len(args) < 4:
             print("** value missing **")
             return
-        setattr(obj, args[2], args[3])
+         setattr(self, args[2], args[3])
 
 
 if __name__ == '__main__':
