@@ -59,6 +59,7 @@ class HBNBCommand(cmd.Cmd):
             print(obj)
         except KeyError:
             print("** no instance found **")
+            return
 
     def do_destroy(self, arg):
         """Deletes an instance based on the class name and id """
@@ -79,9 +80,9 @@ class HBNBCommand(cmd.Cmd):
         reg_no = args[1]
         try:
             obj = models.storage.all()
+            del obj[f"{cls_name}.{reg_no}"]
         except KeyError:
             print("** no instance found **")
-        del obj[f"{cls_name}.{reg_no}"]
         models.storage.save()
     def do_all(self, arg):
         """Prints all string representation of all instances """
