@@ -17,7 +17,8 @@ class FileStorage:
     """Serializes json file to instances and vice-versa """
 
     __file_path = "file.json"
-    class_dict = {"BaseModel": BaseModel, "User": User, "State": State, "City":City, "Amenity":Amenity, "Place": Place, "Review":Review}
+    class_dict = {"BaseModel": BaseModel, "User": User, "State": State,
+"City":City, "Amenity":Amenity,"Place": Place, "Review":Review}
     __objects = {}
 
     def all(self):
@@ -32,8 +33,8 @@ class FileStorage:
     def save(self):
         """serializes __objects to the JSON file """
         with open(self.__file_path, 'w') as fp:
-                json.dump({k: v.to_dict() for k, v in self.__objects.items()
-                       }, fp)
+                json.dump({k: v.to_dict() for k, v in
+self.__objects.items()}, fp)
 
     def reload(self):
         """Deserializes the JSON file to __objects if file-path exists """
