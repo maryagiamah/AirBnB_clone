@@ -11,7 +11,7 @@ class FileStorage:
     """Serializes json file to instances and vice-versa """
 
     __file_path = "file.json"
-    class_dict = {"BaseModel": BaseModel}
+    class_dict = {"BaseModel": BaseModel, "User": User}
     __objects = {}
 
     def all(self):
