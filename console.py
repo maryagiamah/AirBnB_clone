@@ -79,10 +79,10 @@ class HBNBCommand(cmd.Cmd):
         reg_no = args[1]
         try:
             obj = models.storage.all()[f"{cls_name}.{reg_no}"]
-            del obj
         except KeyError:
             print("** no instance found **")
-
+        del obj
+        models.storage.save()
     def do_all(self, arg):
         """Prints all string representation of all instances """
         if arg and arg != 'BaseModel':
