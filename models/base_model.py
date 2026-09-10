@@ -12,8 +12,6 @@ class BaseModel:
         if kwargs:
             for k, v in kwargs.items():
                 if k != '__class__':
-                    if k == "id":
-                        setattr(self, k, str(id))
                     if k in ['created_at', 'updated_at']:
                         v = datetime.fromisoformat(v)
                     setattr(self, k, v)
@@ -33,9 +31,7 @@ class BaseModel:
 
     def to_dict(self):
         """returns a dictionary of __dict__ of instance"""
-        new_dict = {}
-        for k, v in self.__dict__.items():
-            new_dict[k] = v
+        new_dict = self.__dict__.copy()
         new_dict['__class__'] = self.__class__.__name__
         new_dict['created_at'] = self.created_at.isoformat()
         new_dict['updated_at'] = self.updated_at.isoformat()
