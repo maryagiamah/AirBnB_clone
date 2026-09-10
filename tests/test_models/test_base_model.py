@@ -21,6 +21,11 @@ class TestBaseModel(unittest.TestCase):
     def test_id(self):
         self.assertEqual(self.model.id, 89)
 
+    def test_create(self):
+        self.assertIsNotNone(self.model.created_at)
+
+    def test_print(self):
+        
 
 if __name__ == '__main__':
     unittest.main()
