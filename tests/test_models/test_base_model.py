@@ -4,10 +4,10 @@ from models.base_model import BaseModel
 
 class TestBaseModel(unittest.TestCase):
     """Test Base Model"""
-    def setUp(self):
+    def setUpClass(self):
         self.model = BaseModel()
 
-    def tearDown(self):
+    def tearDownClass(self):
         del self.model
 
     def test_save(self):
@@ -16,7 +16,8 @@ class TestBaseModel(unittest.TestCase):
         self.model.save()
 
     def test_toDict(self):
-        self.model.to_dict()
+        model_json = self.model.to_dict()
+        self.assertIsInstance(model_json, dict)
 
     def test_id(self):
         self.assertEqual(self.model.id, 89)
@@ -25,6 +26,8 @@ class TestBaseModel(unittest.TestCase):
         self.assertIsNotNone(self.model.created_at)
 
     def test_print(self):
+        str_format = f"[BaseModel] ({self.model.id}) {self.model.__dict__}"
+        self assertIsEqual(print(self.model), str_format)
         
 
 if __name__ == '__main__':
