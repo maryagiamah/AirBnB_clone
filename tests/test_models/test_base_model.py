@@ -4,11 +4,11 @@ from models.base_model import BaseModel
 
 class TestBaseModel(unittest.TestCase):
     """Test Base Model"""
-    def setUpClass(self):
-        self.model = BaseModel()
+    def setUpClass(cls):
+        cls.model = BaseModel()
 
-    def tearDownClass(self):
-        del self.model
+    def tearDownClass(cls):
+        del cls.model
 
     def test_save(self):
         self.model.name = "My First Model"
@@ -27,7 +27,7 @@ class TestBaseModel(unittest.TestCase):
 
     def test_print(self):
         str_format = f"[BaseModel] ({self.model.id}) {self.model.__dict__}"
-        self assertIsEqual(print(self.model), str_format)
+        self assertIsEqual(str(self.model), str_format)
         
 
 if __name__ == '__main__':
