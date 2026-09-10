@@ -15,7 +15,7 @@ class BaseModel:
                     if k == "id":
                         setattr(self, k, str(id))
                     if k in ['created_at', 'updated_at']:
-                        v = datetime.strptime(v, '%Y-%m-%dT%H:%M:%S.%f')
+                        v = datetime.fromisoformat(v)
                     setattr(self, k, v)
         else:
             self.id = str(uuid.uuid4())
