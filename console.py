@@ -17,8 +17,8 @@ class HBNBCommand(cmd.Cmd):
     """Command line interpreter """
 
     prompt = '(hbnb) '
-    all_models = ["BaseModel", "User",         "City",
-                  "Place", "State", "Amenity", "Review"]
+    all_models = ["BaseModel", "User", "City", "Place",
+"State", "Amenity", "Review"]
 
     def do_EOF(self, line):
         """Exit the program"""
