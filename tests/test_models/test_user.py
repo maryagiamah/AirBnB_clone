@@ -23,3 +23,7 @@ class TestUser(unittest.TestCase):
 
     def test_userFirstName(self):
         self.assertIsInstance(self.user.firstname, str)
+
+
+if __name__ == '__main__':
+    unittest.main()
