@@ -10,7 +10,7 @@ from models.state import State
 from models.city import City
 from models.place import Place
 from models.amenity import Amenity
-from models.review import Review 
+from models.review import Review
 
 
 class HBNBCommand(cmd.Cmd):
@@ -18,7 +18,7 @@ class HBNBCommand(cmd.Cmd):
 
     prompt = '(hbnb) '
     all_models = ["BaseModel", "User", "City", "Place",
-"State", "Amenity", "Review"]
+    "State", "Amenity", "Review"]
 
     def do_EOF(self, line):
         """Exit the program"""
