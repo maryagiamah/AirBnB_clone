@@ -31,14 +31,14 @@ class FileStorage:
     def save(self):
         """serializes __objects to the JSON file """
         with open(self.__file_path, 'w') as fp:
-             json.dump({k: v.to_dict()
+            json.dump({k: v.to_dict()
                        for k, v in self.__objects.items()}, fp)
 
     def reload(self):
         """Deserializes the JSON file to __objects if file-path exists """
         try:
             with open(self.__file_path, 'r') as fp:
-                 file_dict = json.load(fp)
+                file_dict = json.load(fp)
             for k, v in file_dict.items():
                 obj = eval(v['__class__'])(**v)
                 self.__objects[k] = obj
