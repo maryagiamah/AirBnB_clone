@@ -4,9 +4,12 @@ from models.base_model import BaseModel
 
 class TestBaseModel(unittest.TestCase):
     """Test Base Model"""
+
+    @classmethod
     def setUpClass(cls):
         cls.model = BaseModel()
 
+    @classmethod
     def tearDownClass(cls):
         del cls.model
 
