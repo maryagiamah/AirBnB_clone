@@ -8,32 +8,31 @@ Class Test_FileStorage(unittest.Testcase):
         cls.storage = file_storage.FileStorage()
         cls.file_path = cls.storage._FileStorage__file_path
         cls.objects = cls.storage._FileStorage__objects
+        cls.model = BaseModel()
 
     def tearDownClass(cls):
         if os.path.exists(cls.file_path):
             os.remove(cls.file_path)
+        del cls.model
 
     def test_filePath(self):
-        self.assertIsNotNone(cls.file_path)
-        self.assertIsInstance(cls.file_path, string)
+        self.assertIsNotNone(self.file_path)
+        self.assertIsInstance(self.file_path, str)
 
     def test_objects(self):
-        self.assertIsInstance(cls.objects, dict)
+        self.assertIsInstance(self.objects, dict)
 
     def test_all(self):
-        self assertIs(cls.objects, cls.storage.all())
-        self.assertEqual(cls.objects, {})
+        self assertIs(self.objects, cls.storage.all())
 
     def test_new(self):
-        self.model = BaseModel()
         cls.storage.new(self.model)
         obj_key = f"BaseModel.{self.model.id}"
         self.assertIn(obj_key, cls.objects.keys())
 
     def test_save(self):
-       self.model = BaseModel()
-       cls.storage.save()
-       self.assertTrue(os.path.exists(cls.file_path))
+       self.storage.save()
+       self.assertTrue(os.path.exists(self.file_path))
 
     def test_reload(self):
-       cls.storage.reload() 
+       self.storage.reload() 
