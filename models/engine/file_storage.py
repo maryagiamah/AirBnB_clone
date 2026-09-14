@@ -38,7 +38,7 @@ class FileStorage:
         """Deserializes the JSON file to __objects if file-path exists """
         try:
             with open(self.__file_path, 'r') as fp:
-                    file_dict = json.load(fp)
+                 file_dict = json.load(fp)
             for k, v in file_dict.items():
                 obj = eval(v['__class__'])(**v)
                 self.__objects[k] = obj
