@@ -18,7 +18,7 @@ class HBNBCommand(cmd.Cmd):
 
     prompt = '(hbnb) '
     all_models = ["BaseModel", "User",         "City",
-    "Place", "State", "Amenity", "Review"]
+                  "Place", "State", "Amenity", "Review"]
 
     def do_EOF(self, line):
         """Exit the program"""
