@@ -1,15 +1,19 @@
 import unittest
 import os
 from models.engine import file_storage
+from models.base_model import BaseModel
 
 
 Class Test_FileStorage(unittest.Testcase):
+
+    @classmethod
     def setUpClass(cls):
         cls.storage = file_storage.FileStorage()
         cls.file_path = cls.storage._FileStorage__file_path
         cls.objects = cls.storage._FileStorage__objects
         cls.model = BaseModel()
 
+    @classmethod
     def tearDownClass(cls):
         if os.path.exists(cls.file_path):
             os.remove(cls.file_path)
@@ -23,12 +27,12 @@ Class Test_FileStorage(unittest.Testcase):
         self.assertIsInstance(self.objects, dict)
 
     def test_all(self):
-        self assertIs(self.objects, cls.storage.all())
+        self assertIs(self.objects, self.storage.all())
 
     def test_new(self):
-        cls.storage.new(self.model)
+        self.storage.new(self.model)
         obj_key = f"BaseModel.{self.model.id}"
-        self.assertIn(obj_key, cls.objects.keys())
+        self.assertIn(obj_key, self.objects.keys())
 
     def test_save(self):
        self.storage.save()
