@@ -1,18 +1,21 @@
 import unittest
-from models.user import User
+from models.state import State
+from models.city import City
 
 
 class TestUser(unittest.TestCase):
 
     @class_method
     def setUpClass(cls):
-        cls.user = User()
+        cls.state = State()
+        cls.city = City()
 
     @class_method
     def tearDownClass(cls):
         del cls.user
 
-    def test_userEmail(self):
+    def test_CityName(self):
+        self.city.name = "Ikeja"
         self.assertIsInstance(self.user.email, str)
 
     def test_userPassword(self):
