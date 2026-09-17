@@ -12,8 +12,8 @@ class TestCity(unittest.TestCase):
 
     @class_method
     def tearDownClass(cls):
-        del cls.state
         del cls.city
+        del cls.state
 
     def test_CityName(self):
         self.city.name = "Ikeja"
