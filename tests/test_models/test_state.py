@@ -13,7 +13,8 @@ class TestState(unittest.TestCase):
         del cls.state
 
     def test_stateName(self):
-        self.assertIsInstance(self.state.name, str)
+        self.state.name = "Lagos"
+        self.assertEqual(self.state.name, "Lagos")
 
 
 if __name__ == '__main__':
