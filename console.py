@@ -94,6 +94,10 @@ class HBNBCommand(cmd.Cmd):
         if arg and arg not in self.all_models:
             print("** class doesn't exist **")
             return
+        if arg:
+            print([str(obj) for obj in models.storage.all().values()
+                   if obj.__class__.__name__ == arg])
+            return       
         print([str(obj) for obj in models.storage.all().values()])
 
     def do_update(self, arg):
