@@ -4,6 +4,7 @@
 
 import cmd
 import models
+import re
 from models.base_model import BaseModel
 from models.user import User
 from models.state import State
@@ -31,6 +32,31 @@ class HBNBCommand(cmd.Cmd):
     def emptyline(self):
         """Do nothing for empty line"""
         pass
+
+    def default(self, line):
+        """Catches the line before processing by the do_methods"""
+        match = re.match(r"^(\w+)\.(\w+)\((.*)\)$", line)
+
+        if match:
+            cls_name = match.group(1)
+            command = match.group(2)
+
+            if command == "all":
+                return self.do_all(cls_name)
+            elif command == "count":
+                return self.count(cls_name)
+
+    def count(self, cls_name):
+        """Count all modesl instances"""
+        if cls_name not in self.all_models:
+            print("** class doesn't exist **")
+            return
+
+        count = 0
+        for obj in models.storage.all().values():
+            if obj.__class__.__name__ == cls_name:
+                count += 1
+        print(count)
 
     def do_create(self, cls_name):
         """Creates a new instance of BaseModel, save it to json file """
@@ -93,6 +119,10 @@ class HBNBCommand(cmd.Cmd):
         """Prints all string representation of all instances """
         if arg and arg not in self.all_models:
             print("** class doesn't exist **")
+            return
+        if arg:
+            print([str(obj) for obj in models.storage.all().values()
+                   if obj.__class__.__name__ == arg])
             return
         print([str(obj) for obj in models.storage.all().values()])
 
