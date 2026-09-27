@@ -2,7 +2,7 @@ import unittest
 from models.user import User
 from models.city import City
 from models.amenity import Amenity
-from model.place import Place
+from models.place import Place
 
 
 class TestPlace(unittest.TestCase):
