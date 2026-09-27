@@ -61,7 +61,6 @@ class HBNBCommand(cmd.Cmd):
                 obj_id = arg[0].strip("'\"")
                 for k, v in eval(arg[1]).items():
                     self.do_update(f"{cls_name} {obj_id} {k} {v}")
-                return
 
     def count(self, cls_name):
         """Count all modesl instances"""
