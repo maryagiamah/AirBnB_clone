@@ -1,6 +1,6 @@
 import unittest
 from models.user import User
-from models.Place import Place
+from models.place import Place
 from models.review import Review
 
 
