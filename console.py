@@ -46,6 +46,17 @@ class HBNBCommand(cmd.Cmd):
             elif command == "count":
                 return self.count(cls_name)
 
+            args = re.split(r",\s", match.group(3))
+            argument = " ".join([arg.strip("'\"") for arg in args])
+
+            if command == "show":
+                return self.do_show(f"{cls_name} {argument}")
+            elif command == "destroy":
+                return self.do_destroy(f"{cls_name} {argument}")
+            elif command == "update":
+                return self.do_update(f"{cls_name} {argument}")
+                
+
     def count(self, cls_name):
         """Count all modesl instances"""
         if cls_name not in self.all_models:
